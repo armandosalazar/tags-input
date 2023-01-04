@@ -41,12 +41,19 @@ export default {
 </script>
 
 <template>
-  <h3>Tags Input</h3>
+  <h2>
+    Tags Input<span class="material-symbols-outlined tag-icon">sell</span>
+  </h2>
   <div class="tagsInput">
     <div class="tags">
       <div class="tag" v-for="(tag, index) in tags" :key="index">
         {{ tag }}
-        <button @click="handleDeleteTag(tag)">x</button>
+        <span
+          class="material-symbols-outlined small-icon"
+          @click="handleDeleteTag(tag)"
+        >
+          close
+        </span>
       </div>
     </div>
     <input type="text" v-model="newTag" @keydown="handleKeyDown" />
@@ -57,7 +64,60 @@ export default {
 </template>
 
 <style>
-h3 {
-  font-weight: bold;
+/* * {
+  outline: 1px dashed #ccc;
+} */
+
+h2 {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tagsInput {
+  padding: 1rem 2rem;
+  /* max-width: min-content; */
+  width: 500px;
+  /* border: 1px solid #ccc; */
+  border-radius: 5px;
+  margin: 20px auto;
+  box-shadow: 0 0 5px #ccc;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background-color: #e8dff8;
+  margin: 1px 2px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.small-icon {
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 2px;
+}
+
+.tag-icon {
+  margin-left: 5px;
+}
+
+.tagsInput input {
+  border: none;
+  /* outline: none; */
+  outline: 1px solid #e7e0ec;
+  width: 100%;
+  margin-top: 10px;
+  /* font-size: 1rem; */
+  border-radius: 5px;
+  padding: 5px 10px;
 }
 </style>
